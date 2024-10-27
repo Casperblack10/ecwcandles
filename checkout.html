@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - ECW Candles</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="registration.html">Register</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Complete Your Purchase</h2>
+        <form id="checkoutForm" method="POST" action="/checkout">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <label for="cardNumber">Card Number:</label>
+            <input type="text" id="cardNumber" name="cardNumber" required pattern="\d{16}" maxlength="16" placeholder="Enter 16-digit card number">
+
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" required pattern="\d{3}" maxlength="3" placeholder="Enter 3-digit CVV">
+
+            <button type="submit">Complete Purchase</button>
+        </form>
+
+       
+    </main>
+    <footer>
+        <p>&copy; 2024 ECW Candles. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('checkoutForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData.entries());
+
+            fetch('/checkout', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.text())
+            .then(message => {
+                document.getElementById('message').innerText = message;
+                this.reset(); // Reset form fields
+            })
+            .catch(error => {
+                document.getElementById('message').innerText = 'Error completing purchase.';
+            });
+        };
+    </script>
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Products - ECW Candles</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="products.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>Our Products</h1>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="cart.html">Cart</a></li>
+                <li><a href="login.html">Login</a></li>
+                <li><a href="registration.html">Register</a></li>
+                <li><a href="about.html">About Us</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>Available Candles</h2>
+        <div class="product">
+            <h3>Lavender Bliss</h3>
+            <p>Price: $19.99</p>
+            <button onclick="addToCart('Lavender Bliss', 19.99)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h3>Vanilla Dream</h3>
+            <p>Price: $18.99</p>
+            <button onclick="addToCart('Vanilla Dream', 18.99)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h3>Citrus Fresh</h3>
+            <p>Price: $17.99</p>
+            <button onclick="addToCart('Citrus Fresh', 17.99)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h3>Ocean Breeze</h3>
+            <p>Price: $21.99</p>
+            <button onclick="addToCart('Ocean Breeze', 21.99)">Add to Cart</button>
+        </div>
+        <div class="product">
+            <h3>Spiced Cinnamon</h3>
+            <p>Price: $25.99</p>
+            <button onclick="addToCart('Spiced Cinnamon', 25.99)">Add to Cart</button>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2024 ECW Candles. All rights reserved.</p>
+    </footer>
+</body>
+</html>
